@@ -9,10 +9,10 @@ def getDataSource(data_path):
         for i in csv_reader:
             marks_in_percentage.append(float(i["Marks In Percentage"]))
             days_present.append(float(i["Days Present"]))
-   return {"x":marks_in_percentage,"y":days_present} 
+    return {"x":marks_in_percentage,"y":days_present} 
 def findCorrelation(data_source):
-    correlation=np.corrceff(data_source["x",data_source["y"]])
-    print("Correlation of data is:"+correlation[0,1]) 
+    correlation=np.corrcoef(data_source["x"],data_source["y"])
+    print("Correlation of data is:",correlation[0,1]) 
 def setUp():
     data_path="Student Marks vs Days Present.csv"
     data_source=getDataSource(data_path)
